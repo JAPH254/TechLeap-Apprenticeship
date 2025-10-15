@@ -3,17 +3,19 @@
 
  Write a function that returns the second-largest number in a given list of integers.
  (Provide your code and a short explanation of your approach.)
-
-```def second_largest(numbers):```
-```    if len(numbers) < 2:```
-```        return None```
-    
-```    unique_nums = sorted(set(numbers))```
  
-```    if len(unique_nums) < 2:```
-```        return None```
+```python
+def second_largest(numbers):
+    if len(numbers) < 2:
+        return None
     
-```    return unique_nums[-2]```
+    unique_nums = sorted(set(numbers))
+    
+    if len(unique_nums) < 2:
+        return None
+    
+    return unique_nums[-2]
+```
 
 ***Approach***
 
