@@ -4,6 +4,25 @@
  Write a function that returns the second-largest number in a given list of integers.
  (Provide your code and a short explanation of your approach.)
 
+```def second_largest(numbers):```
+```    if len(numbers) < 2:```
+```        return None```
+    
+```    unique_nums = sorted(set(numbers))```
+ 
+```    if len(unique_nums) < 2:```
+```        return None```
+    
+```    return unique_nums[-2]```
+
+***Approach***
+
+1. Check if the list has at least two elements. If not, return None.
+2. Convert the list to a set to remove duplicates.
+3. Sort the set of unique numbers.
+4. If after removing duplicates we have less than two distinct numbers, return None.
+5. Otherwise, return the second last element (which is the second largest).
+
 
 **Question 2:**
 
