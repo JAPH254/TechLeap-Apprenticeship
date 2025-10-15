@@ -29,7 +29,95 @@ def second_largest(numbers):
 **Question 2:**
 
  Explain how you would optimize a page that loads too slowly. Mention at least three causes and how you’d fix each.
+ 
 
+***i. Large or Unoptimized Images***
+
+**Cause:***
+Images are too large or in heavy formats (like PNG for photos).
+
+***Fix:***
+Compress and convert images to WebP or AVIF, and enable lazy loading.
+
+***Example:***
+
+<!-- Before -->
+<img src="banner.png" alt="Banner" />
+
+<!-- After -->
+<img src="banner.webp" alt="Banner" loading="lazy" />
+
+
+***ii. Too Many or Unminified Scripts and Styles***
+
+***Cause:***
+
+Multiple CSS/JS files or unminified code increases HTTP requests.
+
+Fix:
+Bundle and minify assets using build tools (Webpack, Vite, Parcel) and defer scripts.
+
+Example:
+
+<!-- Before -->
+<script src="jquery.js"></script>
+<script src="main.js"></script>
+
+<!-- After -->
+<script src="bundle.min.js" defer></script>
+
+
+***iii. No Browser Caching***
+
+***Cause:***
+
+Each visit re-downloads all files, increasing load time.
+
+Fix:
+Use caching headers or service workers to store static assets.
+
+Example (Nginx config):
+
+location ~* \.(js|css|png|jpg|jpeg|gif|webp|svg)$ {
+    expires 30d;
+    add_header Cache-Control "public";
+}
+
+***iv. Slow Server or Database Queries***
+
+***Cause:***
+Backend takes too long to respond due to heavy database queries.
+
+Fix:
+Use pagination, indexes, and optimize queries.
+
+Example (Django):
+
+# Before
+posts = Post.objects.all()
+
+# After – use pagination
+posts = Post.objects.all()[:20]
+
+
+***v. Render-Blocking Resources***
+
+***Cause:***
+
+CSS or JS files block the browser from rendering content quickly.
+
+Fix:
+Inline critical CSS and defer non-critical scripts.
+
+Example:
+
+<!-- Inline small critical CSS -->
+<style>
+  body { font-family: Arial; background: #fff; }
+</style>
+
+<!-- Defer non-critical JS -->
+<script src="analytics.js" defer></script>
 
 **SECTION 2: Web/Software Development (15 marks)**
 **Question 3 (Front-end):**
