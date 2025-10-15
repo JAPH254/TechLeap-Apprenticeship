@@ -18,13 +18,13 @@ def second_largest(numbers):
 ```
 
 ***Approach***
-
+```
 1. Check if the list has at least two elements. If not, return None.
 2. Convert the list to a set to remove duplicates.
 3. Sort the set of unique numbers.
 4. If after removing duplicates we have less than two distinct numbers, return None.
 5. Otherwise, return the second last element (which is the second largest).
-
+```
 
 **Question 2:**
 
